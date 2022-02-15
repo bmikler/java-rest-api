@@ -40,7 +40,6 @@ public class UserService {
 
     public UserDto addUser(UserDto userInput) {
 
-
         User user = userDtoMapper.map(userInput);
 
         if (userRepository.findByPesel(user.getPesel()).isPresent()) {
@@ -52,6 +51,20 @@ public class UserService {
         return userDtoMapper.map(savedUser);
     }
 
+    public UserDto editUser(Long id, UserDto userInput) {
 
+        userRepository.findByPesel(userInput.getPesel()).ifPresent(user -> {
+                    if (user.getId() != id) {
+                        throw new UserAlreadyExistException();
+                    }
+                }
+        );
+
+        User user = userDtoMapper.map(userInput);
+        User userSaved = userRepository.save(user);
+
+        return userDtoMapper.map(userSaved);
+
+    }
 
 }

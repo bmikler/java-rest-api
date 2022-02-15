@@ -38,7 +38,19 @@ public class UserController {
 
     }
 
+    @PutMapping("/{id}")
+    ResponseEntity<UserDto> editUser(@PathVariable Long id, @RequestBody UserDto user){
 
+        if (user.getId() != id) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id must be equal to edited object.");
+        }
+
+        UserDto userEdited = userService.editUser(id, user);
+
+        return ResponseEntity.ok(userEdited);
+
+
+    }
 
     @PostMapping
     ResponseEntity<UserDto> saveUser (@RequestBody UserDto user) {

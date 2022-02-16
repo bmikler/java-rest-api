@@ -1,25 +1,18 @@
-package pl.javastart.equipy.asset;
+package pl.javastart.equipy.asset.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.javastart.equipy.category.Category;
 
-import javax.persistence.*;
-
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Asset {
+public class AssetDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
     private String serialNumber;
-    @ManyToOne
-    private Category category;
+    private String category;
 
 }

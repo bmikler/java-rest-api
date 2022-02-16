@@ -27,6 +27,7 @@ public class UserController {
             return userService.findByLastName(lastName);
         }
         return userService.findAll();
+
     }
 
     @GetMapping("/{id}")
@@ -56,7 +57,7 @@ public class UserController {
     ResponseEntity<UserDto> saveUser (@RequestBody UserDto user) {
 
         if (user.getId() != null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "New created object id must be null");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID of new created entity must be null!");
         }
 
         UserDto userSaved = userService.addUser(user);

@@ -21,8 +21,13 @@ public class Assignment {
     private LocalDateTime start;
     private LocalDateTime end;
     @ManyToOne
-    private Asset asset;
-    @ManyToOne
     private User user;
+    @ManyToOne
+    private Asset asset;
 
+    public Assignment(User user, Asset asset) {
+        this.user = user;
+        this.asset = asset;
+        this.start = LocalDateTime.now();
+    }
 }

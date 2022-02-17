@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByLastNameContainsIgnoreCase(String lastName);
 

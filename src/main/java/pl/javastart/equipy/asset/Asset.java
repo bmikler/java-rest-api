@@ -7,7 +7,9 @@ import pl.javastart.equipy.assigment.Assignment;
 import pl.javastart.equipy.category.Category;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,8 +26,8 @@ public class Asset {
     private String serialNumber;
     @ManyToOne
     private Category category;
-//    @OneToMany
-//    @JoinColumn(name = "asset_id")
-//    private Set<Assignment> assignments = new HashSet<>();
+    @OneToMany
+    @JoinColumn(name = "asset_id")
+    private List<Assignment> assignments = new ArrayList<>();
 
 }

@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class AssignmentDto {
 
-
     private Long id;
     private LocalDateTime start;
     private LocalDateTime end;
     private Long assetId;
+    private Long userId;
     private String assetName;
     private String assetSerialNumber;
 

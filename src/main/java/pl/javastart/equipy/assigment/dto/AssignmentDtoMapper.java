@@ -12,6 +12,7 @@ public class AssignmentDtoMapper {
                 assignment.getId(),
                 assignment.getStart(),
                 assignment.getEnd(),
+                assignment.getUser().getId(),
                 assignment.getAsset().getId(),
                 assignment.getAsset().getName(),
                 assignment.getAsset().getSerialNumber()

@@ -33,7 +33,8 @@ public class AssetDtoMapper {
                 asset.getName(),
                 asset.getDescription(),
                 asset.getSerialNumber(),
-                categoryNameMapper.map(asset.getCategory())
+                categoryNameMapper.map(asset.getCategory()),
+                null
         );
 
     }

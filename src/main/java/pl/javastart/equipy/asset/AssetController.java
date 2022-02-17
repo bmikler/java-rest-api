@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pl.javastart.equipy.asset.dto.AssetDto;
+import pl.javastart.equipy.assigment.dto.AssignmentDto;
 import pl.javastart.equipy.category.CategoryRepository;
 
 import java.net.URI;
@@ -37,6 +38,13 @@ public class AssetController {
         return assetService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+
+    }
+
+    @GetMapping("/{id}/assignments")
+    public List<AssignmentDto> getAssignmentByAssetId(@PathVariable Long id) {
+
+        return assetService.getAssignmentByAsset(id);
 
     }
 

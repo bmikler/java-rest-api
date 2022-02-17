@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import pl.javastart.equipy.assigment.dto.AssignmentDto;
 import pl.javastart.equipy.user.dto.UserDto;
 
 import java.net.URI;
@@ -36,6 +37,13 @@ public class UserController {
         return userService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+
+    }
+
+    @GetMapping("/{id}/assignments")
+    List<AssignmentDto> getAssignmentsByUserId(@PathVariable Long id) {
+
+        return userService.getAssignmentByUser(id);
 
     }
 

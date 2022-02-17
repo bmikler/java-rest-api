@@ -23,7 +23,8 @@ public class UserDtoMapper {
                 user.getId(),
                 user.getFirstName(),
                 user.getLastName(),
-                user.getPesel()
+                user.getPesel(),
+                null
         );
 
     }

@@ -3,9 +3,12 @@ package pl.javastart.equipy.asset;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.javastart.equipy.assigment.Assignment;
 import pl.javastart.equipy.category.Category;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -21,5 +24,8 @@ public class Asset {
     private String serialNumber;
     @ManyToOne
     private Category category;
+//    @OneToMany
+//    @JoinColumn(name = "asset_id")
+//    private Set<Assignment> assignments = new HashSet<>();
 
 }

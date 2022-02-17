@@ -5,6 +5,7 @@ import pl.javastart.equipy.asset.dto.AssetDto;
 import pl.javastart.equipy.asset.dto.AssetDtoMapper;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AssetService {
@@ -22,6 +23,13 @@ public class AssetService {
                 .stream()
                 .map(assetDtoMapper::map)
                 .toList();
+    }
+
+    public Optional<AssetDto> findById(Long id) {
+
+        return assetRepository.findById(id)
+                .map(assetDtoMapper::map);
+
     }
 
     public List<AssetDto> findByNameOrSerialNumber(String searchText) {

@@ -31,6 +31,15 @@ public class AssetController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AssetDto> getAssetById(@PathVariable Long id) {
+
+        return assetService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+
+    }
+
     @PostMapping
     public ResponseEntity<AssetDto> saveAsset(AssetDto asset) {
 

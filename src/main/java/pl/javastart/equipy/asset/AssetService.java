@@ -56,4 +56,19 @@ public class AssetService {
 
     }
 
+    public AssetDto editAsset(Long id, AssetDto asset) {
+
+        assetRepository.findBySerialNumber(asset.getSerialNumber())
+                .ifPresent( a -> {
+                    if (a.getId() != id) {
+                        throw new AssetAlreadyExistException();
+                    }
+                });
+
+        Asset assetToSave = assetDtoMapper.map(asset);
+        Asset assetSaved = assetRepository.save(assetToSave);
+
+        return assetDtoMapper.map(assetSaved);
+
+    }
 }

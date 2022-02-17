@@ -40,6 +40,19 @@ public class AssetController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<AssetDto> editAsset(@PathVariable Long id, @RequestBody AssetDto asset) {
+
+        if (id != asset.getId()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"ID must be equal to edited asset");
+        }
+
+        AssetDto assetEdited = assetService.editAsset(id, asset);
+
+        return ResponseEntity.ok(assetEdited);
+
+    }
+
     @PostMapping
     public ResponseEntity<AssetDto> saveAsset(AssetDto asset) {
 

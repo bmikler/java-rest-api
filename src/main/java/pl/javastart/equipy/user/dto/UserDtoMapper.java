@@ -8,6 +8,10 @@ public class UserDtoMapper {
 
     public UserDto map(User user) {
 
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
+
         return new UserDto(
                 user.getId(),
                 user.getFirstName(),
@@ -19,12 +23,15 @@ public class UserDtoMapper {
 
     public User map(UserDto user) {
 
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
+
         return new User(
                 user.getId(),
                 user.getFirstName(),
                 user.getLastName(),
-                user.getPesel(),
-                null
+                user.getPesel()
         );
 
     }

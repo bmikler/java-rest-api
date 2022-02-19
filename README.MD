@@ -1,6 +1,7 @@
-## Equipy - work in progress...
+## Equipy
+
 ### RestAPI created as a final task in JavaStart Spring course.
-#### All frontend created by [JavaStart](https://javastart.pl), backend and tests created by me.
+#### All frontend created by [JavaStart](https://javastart.pl), backend created by me.
 
 #### Application to simulate borrowing equipment, created with Java and Spring.
 

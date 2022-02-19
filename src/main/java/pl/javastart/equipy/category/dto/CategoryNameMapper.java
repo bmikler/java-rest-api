@@ -2,6 +2,7 @@ package pl.javastart.equipy.category.dto;
 
 import org.springframework.stereotype.Component;
 import pl.javastart.equipy.category.Category;
+import pl.javastart.equipy.category.CategoryNotFoundException;
 import pl.javastart.equipy.category.CategoryRepository;
 
 @Component
